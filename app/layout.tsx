@@ -5,6 +5,7 @@ import { ReactNode } from "react";
 import "./globals.css";
 
 import ThemeProvider from "@/context/Theme";
+import Navbar from "@/components/navigation/navbar";
 
 const inter = localFont({
   src: "./fonts/InterVF.ttf",
@@ -46,6 +47,7 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
           enableSystem
           disableTransitionOnChange
         >
+          <Navbar />
           {children}
         </ThemeProvider>
       </body>
