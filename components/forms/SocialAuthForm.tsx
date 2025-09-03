@@ -15,7 +15,7 @@ const SocialAuthForm = () => {
     console.log("signing in ...");
     try {
       await signIn(provider, {
-        callbackUrl: ROUTES.HOME,
+        redirectTo: ROUTES.HOME,
         redirect: false,
       });
     } catch (error) {
@@ -44,7 +44,7 @@ const SocialAuthForm = () => {
         />
         <span>Log in with GitHub</span>
       </Button>
-      {/* <Button className={buttonClass} onClick={() => handleSignIn("google")}>
+      <Button className={buttonClass} onClick={() => handleSignIn("google")}>
         <Image
           src={"/icons/google.svg"}
           alt="google logo"
@@ -53,7 +53,7 @@ const SocialAuthForm = () => {
           className=" mr-2.5 object-contain"
         />
         <span>Log in with Google</span>
-      </Button> */}
+      </Button>
     </div>
   );
 };
