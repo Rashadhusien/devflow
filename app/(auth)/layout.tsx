@@ -9,7 +9,9 @@ const AuthLayout = ({ children }: { children: ReactNode }) => {
       <section className="light-border background-light800_dark200 shadow-light100_dark100 min-w-full rounded-[10px] border px-4 py-10 shadow-md sm:min-w-[520px] sm:px-8">
         <div className="flex-between gap-2">
           <div className="space-y-2.5">
-            <h1 className="h2-bold text-dark100_light900">Join DevFlow</h1>
+            <h1 className="h2-bold text-dark100_light900">
+              Join Dev<span className="text-primary-500">Flow</span>
+            </h1>
             <p className="paragraph-regular text-dark500_light400">
               To get your questions answerd
             </p>
@@ -23,6 +25,11 @@ const AuthLayout = ({ children }: { children: ReactNode }) => {
           />
         </div>
         {children}
+        <div className="border mt-4 border-white dark:border-dark-400 relative">
+          <span className="absolute top-1/2 left-1/2 transform -translate-1/2 p-2 background-light800_dark200 rounded-full">
+            or
+          </span>
+        </div>
         <SocialAuthForm />
       </section>
     </main>
