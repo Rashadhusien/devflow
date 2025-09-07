@@ -1,0 +1,54 @@
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+
+import { Button } from "@/components/ui/button";
+import ROUTES from "@/constants/routes";
+
+import NavLinks from "./navbar/NavLinks";
+
+const LeftSidebar = () => {
+  return (
+    <section className=" custom-scrollbar p-6 pt-28 shadow-light-300 dark:shadow-none light-border border-r max-sm:hidden background-light900_dark200    flex flex-col  justify-between overflow-y-auto  sticky left-0 top-0 h-screen  lg:w-[266px]  ">
+      <div className="  flex flex-1 md:w-full justify-center flex-col w-fit gap-5">
+        <NavLinks />
+      </div>
+
+      <div className="flex flex-col gap-3 mt-4 ">
+        <Button
+          className="small-medium btn-secondary min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none cursor-pointer"
+          asChild
+        >
+          <Link href={ROUTES.SIGN_IN}>
+            <span className="primary-text-gradient max-lg:hidden">Log In</span>
+            <Image
+              src={"/icons/account.svg"}
+              width={24}
+              height={24}
+              alt="account"
+              className="lg:hidden invert-colors"
+            />
+          </Link>
+        </Button>
+
+        <Button
+          className="small-medium btn-tertiary border light-border-2 text-dark400_light900  min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none cursor-pointer"
+          asChild
+        >
+          <Link href={ROUTES.SIGN_UP}>
+            <span className="max-lg:hidden">Sign Up</span>
+            <Image
+              src={"/icons/sign-up.svg"}
+              width={24}
+              height={24}
+              alt="sign-in"
+              className="lg:hidden invert-colors"
+            />
+          </Link>
+        </Button>
+      </div>
+    </section>
+  );
+};
+
+export default LeftSidebar;
