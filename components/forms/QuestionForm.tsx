@@ -60,7 +60,7 @@ const QuestionForm = () => {
         <FormField
           control={form.control}
           name={"content"}
-          render={({ field }) => (
+          render={() => (
             <FormItem className="flex w-full flex-col ">
               <FormLabel className="paragraph-medium text-dark400_light700">
                 Detailed explanation of your problem{" "}
