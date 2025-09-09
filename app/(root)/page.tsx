@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
+import HomeFilter from "@/components/filters/HomeFilter";
 import LocalSearch from "@/components/search/LocalSearch";
 import { Button } from "@/components/ui/button";
 import ROUTES from "@/constants/routes";
@@ -52,13 +53,25 @@ interface SearchParams {
 }
 
 const Home = async ({ searchParams }: SearchParams) => {
-  const { query = "" } = await searchParams;
+  const { query = "", filter = "" } = await searchParams;
 
   // const {data} = await axios.get("/api/questions", {query: {search:query}})
 
-  const filterdQuestions = questions.filter((question) =>
-    question.title.toLowerCase().includes(query?.toLowerCase())
-  );
+  const normalizedQuery = query.toLowerCase();
+  const normalizedFilter = filter.toLowerCase();
+
+  const filterdQuestions = questions.filter((question) => {
+    const matchesQuery =
+      !normalizedQuery ||
+      question.title.toLowerCase().includes(normalizedQuery) ||
+      question.description.toLowerCase().includes(normalizedQuery);
+
+    const matchesFilter =
+      !normalizedFilter ||
+      question.tags.some((tag) => tag.name.toLowerCase() === normalizedFilter);
+
+    return matchesQuery && matchesFilter;
+  });
 
   return (
     <>
@@ -68,14 +81,16 @@ const Home = async ({ searchParams }: SearchParams) => {
           <Link href={ROUTES.ASK_QUESTION}>Ask a Question</Link>
         </Button>
       </section>
-      <section className="mt-10">
+      <section className="mt-11">
         <LocalSearch
           route="/"
           imgSrc={`/icons/search.svg`}
           placeholder="Search questions..."
           otherClasses="flex-1"
         />
-        HomeFilter
+      </section>
+      <section className="mt-10">
+        <HomeFilter />
       </section>
       <div className="mt-10 flex flex-col w-full gap-6">
         {filterdQuestions.map((question) => (
