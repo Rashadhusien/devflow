@@ -6,6 +6,7 @@ import HomeFilter from "@/components/filters/HomeFilter";
 import LocalSearch from "@/components/search/LocalSearch";
 import { Button } from "@/components/ui/button";
 import ROUTES from "@/constants/routes";
+
 const questions = [
   {
     _id: "1",
@@ -66,16 +67,15 @@ interface SearchParams {
 const Home = async ({ searchParams }: SearchParams) => {
   const { query = "", filter = "" } = await searchParams;
 
-  // const {data} = await axios.get("/api/questions", {query: {search:query}})
+  const normalizedQuery = query?.toLowerCase() || "";
+  const normalizedFilter = filter?.toLowerCase() || "";
 
-  const normalizedQuery = query.toLowerCase();
-  const normalizedFilter = filter.toLowerCase();
-
-  const filterdQuestions = questions.filter((question) => {
+  const filteredQuestions = questions.filter((question) => {
     const matchesQuery =
       !normalizedQuery ||
       question.title.toLowerCase().includes(normalizedQuery) ||
-      question.description.toLowerCase().includes(normalizedQuery);
+      (question.description &&
+        question.description.toLowerCase().includes(normalizedQuery));
 
     const matchesFilter =
       !normalizedFilter ||
@@ -104,7 +104,7 @@ const Home = async ({ searchParams }: SearchParams) => {
         <HomeFilter />
       </section>
       <div className="mt-10 flex flex-col w-full gap-6">
-        {filterdQuestions.map((question) => (
+        {filteredQuestions.map((question) => (
           <QuestionCard key={question._id} question={question} />
         ))}
       </div>
