@@ -7,7 +7,7 @@ import { useRef } from "react";
 import { useForm } from "react-hook-form";
 import z from "zod";
 
-import { AskQuestionSchema, AskQuestionSchema } from "@/lib/validations";
+import { AskQuestionSchema } from "@/lib/validations";
 
 import TagCard from "../cards/TagCard";
 import { Button } from "../ui/button";
