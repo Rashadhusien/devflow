@@ -1,9 +1,9 @@
-import { model, models, Schema, types } from "mongoose";
+import { model, models, Schema, Types } from "mongoose";
 
-export const IModel {}
+export interface IModel {}
 
-const ModelSchema = new Schema<IModel>({}, {timestamps: true})
+const ModelSchema = new Schema<IModel>({}, { timestamps: true });
 
-const Model = models?.Model || model<IModel>("Model", ModelSchema)
+const Model = models?.Model || model<IModel>("Model", ModelSchema);
 
-export default Model
+export default Model;
