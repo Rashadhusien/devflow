@@ -7,7 +7,7 @@ import dbConnect from "@/lib/mongoose";
 import { AccountSchema } from "@/lib/validations";
 import { APIErrorResponse } from "@/types/global";
 
-// GET /api/users/[id]
+// GET /api/accounts/[id]
 export async function GET(
   _: Response,
   { params }: { params: Promise<{ id: string }> }
@@ -25,7 +25,7 @@ export async function GET(
   }
 }
 
-// PUT /api/users/[id]
+// PUT /api/accounts/[id]
 export async function PUT(
   request: Response,
   { params }: { params: Promise<{ id: string }> }
@@ -55,7 +55,7 @@ export async function PUT(
   }
 }
 
-// DELETE /api/users/[id]
+// DELETE /api/accounts/[id]
 export async function DELETE(
   _: Response,
   { params }: { params: Promise<{ id: string }> }
