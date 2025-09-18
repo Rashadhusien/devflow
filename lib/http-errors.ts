@@ -50,7 +50,7 @@ export class ForbiddenError extends RequestError {
   }
 }
 
-export class Unauthorized extends RequestError {
+export class UnauthorizedError extends RequestError {
   constructor(message: string = "Unauthorized") {
     super(401, message);
     this.name = "UnauthorizedError";
