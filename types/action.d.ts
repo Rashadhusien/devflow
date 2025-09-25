@@ -8,3 +8,10 @@ interface SignInWithOAuthParams {
     username: string;
   };
 }
+
+interface AuthCredentails {
+  name: string;
+  username: string;
+  email: string;
+  password: string;
+}

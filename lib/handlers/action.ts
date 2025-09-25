@@ -45,9 +45,5 @@ async function action<T>({
 
   return { params, session };
 }
-// 1. Checking whether the schema and params are provided and validated.
-// 2. Checking whether the user is authorized.
-// 3. Connecting to the database.
-// 4. If all of that true Returning the params and session
 
 export default action;
