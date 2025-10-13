@@ -30,7 +30,7 @@ export async function createQuestion(
     authorize: true,
   });
   if (validationResult instanceof Error) {
-    return handleError(validationResult) as ErrorResponse<Q>;
+    return handleError(validationResult) as ErrorResponse;
   }
   const { title, content, tags } = params;
   const userId = validationResult?.session?.user?.id;
@@ -70,7 +70,7 @@ export async function createQuestion(
     return { success: true, data: JSON.parse(JSON.stringify(question)) };
   } catch (error) {
     await session.abortTransaction();
-    return handleError(error) as ErrorResponse<Q>;
+    return handleError(error) as ErrorResponse;
   } finally {
     session.endSession();
   }
@@ -84,7 +84,7 @@ export async function editQuestion(
     authorize: true,
   });
   if (validationResult instanceof Error) {
-    return handleError(validationResult) as ErrorResponse<IQuestionDoc>;
+    return handleError(validationResult) as ErrorResponse;
   }
   const { title, content, tags, questionId } = params;
   const userId = validationResult?.session?.user?.id;
@@ -177,7 +177,7 @@ export async function editQuestion(
     return { success: true, data: JSON.parse(JSON.stringify(question)) };
   } catch (error) {
     await session.abortTransaction();
-    return handleError(error) as ErrorResponse<IQuestionDoc>;
+    return handleError(error) as ErrorResponse;
   } finally {
     await session.endSession();
   }
@@ -192,7 +192,7 @@ export async function getQuestion(
     authorize: true,
   });
   if (validationResult instanceof Error) {
-    return handleError(validationResult) as ErrorResponse<Q>;
+    return handleError(validationResult) as ErrorResponse;
   }
   const { questionId } = params;
 
@@ -203,7 +203,7 @@ export async function getQuestion(
     }
     return { success: true, data: JSON.parse(JSON.stringify(question)) };
   } catch (error) {
-    return handleError(error) as ErrorResponse<Q>;
+    return handleError(error) as ErrorResponse;
   }
 }
 
@@ -216,10 +216,7 @@ export async function getQuestions(
   });
 
   if (validationResult instanceof Error) {
-    return handleError(validationResult) as ErrorResponse<{
-      question: Q[];
-      isNext: boolean;
-    }>;
+    return handleError(validationResult) as ErrorResponse;
   }
 
   const { page = 1, pageSize = 10, query, filter } = params;
@@ -275,9 +272,6 @@ export async function getQuestions(
       data: { question: JSON.parse(JSON.stringify(questions)), isNext },
     };
   } catch (error) {
-    return handleError(error) as ErrorResponse<{
-      question: Q[];
-      isNext: boolean;
-    }>;
+    return handleError(error) as ErrorResponse;
   }
 }
