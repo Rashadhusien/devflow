@@ -6,6 +6,11 @@ import Question, { IQuestionDoc } from "@/database/question.model";
 import TagQuestion from "@/database/tag-question.model";
 import Tag, { ITagDoc } from "@/database/tag.model";
 import {
+  CreateQuestionParams,
+  EditQuestionParams,
+  GetQuestionParams,
+} from "@/types/action";
+import {
   ActionResponse,
   ErrorResponse,
   PaginatedSearchParams,
@@ -107,19 +112,6 @@ export async function editQuestion(
       await question.save({ session });
     }
 
-    // const existingTagNames = (question.tags as unknown as ITagDoc[]).map(
-    //   (tag) => tag.name.toLowerCase()
-    // );
-
-    // const tagsToAdd = tags.filter(
-    //   (tag) => !existingTagNames.includes(tag.toLowerCase())
-    // );
-
-    // const tagsToRemove = (question.tags as unknown as ITagDoc[]).filter(
-    //   (tag) =>
-    //     !tags.map((t) => t.toLowerCase()).includes(tag.name.toLowerCase())
-    // );
-
     const tagsToAdd = tags.filter(
       (tag) =>
         !question.tags.some(
@@ -197,7 +189,9 @@ export async function getQuestion(
   const { questionId } = params;
 
   try {
-    const question = await Question.findById(questionId).populate("tags");
+    const question = await Question.findById(questionId)
+      .populate("tags")
+      .populate("author", "_id name image");
     if (!question) {
       throw new Error("Question Not Found");
     }
