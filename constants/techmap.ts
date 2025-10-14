@@ -206,3 +206,97 @@ export const techMap: { [key: string]: string } = {
   chakraui: "devicon-chakraui-plain",
   shadcn: "devicon-shadcn-plain",
 };
+
+export const techDescriptionMap: { [key: string]: string } = {
+  javascript:
+    "JavaScript is a powerful programming language used to create dynamic and interactive web experiences.",
+  js: "JavaScript is a powerful programming language used to create dynamic and interactive web experiences.",
+  typescript:
+    "TypeScript is a typed superset of JavaScript that enhances code quality, scalability, and maintainability.",
+  ts: "TypeScript is a typed superset of JavaScript that enhances code quality, scalability, and maintainability.",
+  react:
+    "React is a JavaScript library for building fast and interactive user interfaces using reusable components.",
+  reactjs:
+    "React.js is a JavaScript library for creating rich, component-based UIs efficiently.",
+  nextjs:
+    "Next.js is a React framework for building modern, server-rendered, and statically generated web applications.",
+  next: "Next.js is a React framework that enables server-side rendering and static site generation.",
+  nodejs:
+    "Node.js is a JavaScript runtime built on Chrome's V8 engine, ideal for scalable server-side applications.",
+  node: "Node.js is a JavaScript runtime for building fast, scalable backend services.",
+  python:
+    "Python is a versatile, beginner-friendly language widely used for web development, data science, and automation.",
+  java: "Java is a robust, object-oriented programming language commonly used for enterprise and Android applications.",
+  cpp: "C++ is a powerful language for system-level programming, games, and performance-critical software.",
+  "c++":
+    "C++ is a powerful language for system-level programming, games, and performance-critical software.",
+  csharp:
+    "C# is a modern, object-oriented language developed by Microsoft, widely used for Windows and game development.",
+  "c#": "C# is a modern, object-oriented language developed by Microsoft, widely used for Windows and game development.",
+  php: "PHP is a server-side scripting language used to build dynamic websites and web applications.",
+  html: "HTML (HyperText Markup Language) is the standard language for structuring web pages and content.",
+  css: "CSS (Cascading Style Sheets) is used to style and layout web pages with colors, fonts, and responsive designs.",
+  tailwind:
+    "Tailwind CSS is a utility-first CSS framework for rapidly building custom designs without leaving your HTML.",
+  tailwindcss:
+    "Tailwind CSS is a utility-first CSS framework that enables fast, consistent, and responsive UI development.",
+  bootstrap:
+    "Bootstrap is a popular front-end CSS framework for building responsive and mobile-first websites quickly.",
+  git: "Git is a distributed version control system used to track changes and collaborate on code efficiently.",
+  github:
+    "GitHub is a platform for hosting and collaborating on Git repositories with version control and CI/CD tools.",
+  docker:
+    "Docker is a containerization platform that simplifies deploying and running applications across environments.",
+  mongodb:
+    "MongoDB is a NoSQL database that stores data in flexible, JSON-like documents for modern web applications.",
+  mysql:
+    "MySQL is a widely used open-source relational database for managing structured data efficiently.",
+  postgresql:
+    "PostgreSQL is a powerful open-source relational database with advanced features and strong SQL compliance.",
+  firebase:
+    "Firebase is a backend-as-a-service platform by Google that provides hosting, authentication, and databases.",
+  graphql:
+    "GraphQL is a query language for APIs that allows clients to request exactly the data they need.",
+  vue: "Vue.js is a progressive JavaScript framework for building user interfaces with an approachable core library.",
+  angular:
+    "Angular is a TypeScript-based framework for building dynamic and scalable web applications.",
+  redux:
+    "Redux is a predictable state management library commonly used with React applications.",
+  aws: "Amazon Web Services (AWS) is a leading cloud platform offering a wide range of on-demand computing services.",
+  azure:
+    "Microsoft Azure is a cloud computing platform offering services for deploying and managing applications.",
+  gcp: "Google Cloud Platform (GCP) provides scalable infrastructure, AI, and cloud computing services.",
+  linux:
+    "Linux is an open-source operating system known for its stability, flexibility, and security.",
+  figma:
+    "Figma is a collaborative web-based design tool used for UI/UX design and prototyping.",
+  photoshop:
+    "Adobe Photoshop is a powerful graphic editing software used for image manipulation and digital design.",
+  illustrator:
+    "Adobe Illustrator is a vector graphics software used for logos, illustrations, and typography.",
+  xd: "Adobe XD is a user experience design tool for creating wireframes and interactive prototypes.",
+  premiere:
+    "Adobe Premiere Pro is a professional video editing software used for creating and editing high-quality videos.",
+  jest: "Jest is a JavaScript testing framework focused on simplicity and great developer experience.",
+  cypress:
+    "Cypress is a modern end-to-end testing framework for web applications, known for its developer-friendly tooling.",
+  webpack:
+    "Webpack is a module bundler that optimizes JavaScript and assets for modern web applications.",
+  vite: "Vite is a lightning-fast frontend build tool for modern web projects using ES modules.",
+  express:
+    "Express.js is a minimal and flexible Node.js web application framework providing a strong set of features for APIs.",
+  nestjs:
+    "NestJS is a progressive Node.js framework for building efficient, scalable, and maintainable server-side applications.",
+  django:
+    "Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.",
+  flask:
+    "Flask is a lightweight Python web framework ideal for building small to medium-sized web applications.",
+  sass: "Sass is a CSS preprocessor that adds powerful features like variables, nesting, and mixins for cleaner styling.",
+  less: "Less is a CSS preprocessor that extends CSS with variables, mixins, and functions for easier styling.",
+  vitejs:
+    "Vite is a next-generation, fast build tool for modern frontend development.",
+  materialui:
+    "Material UI is a React component library implementing Google’s Material Design system.",
+  shadcn:
+    "ShadCN/UI is a customizable component library for React and Next.js apps, built with Tailwind CSS.",
+};
