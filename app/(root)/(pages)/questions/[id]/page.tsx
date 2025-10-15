@@ -11,6 +11,8 @@ import { getQuestion } from "@/lib/actions/question.action";
 import { formatNumber, getTimestamp } from "@/lib/utils";
 import { RouteParams, Tag } from "@/types/global";
 
+import View from "../View";
+
 const QuestionDetails = async ({ params }: RouteParams) => {
   const { id } = await params;
 
@@ -21,6 +23,7 @@ const QuestionDetails = async ({ params }: RouteParams) => {
   const { author, createdAt, answers, views, tags, content, title } = question;
   return (
     <>
+      <View questionId={id} />
       <div className="flex-start w-full flex-col">
         <div className="flex w-full flex-col-reverse justify-between">
           <div className="flex justify-start items-center gap-1">
