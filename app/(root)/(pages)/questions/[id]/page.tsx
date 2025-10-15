@@ -4,6 +4,7 @@ import { after } from "next/server";
 import React from "react";
 
 import TagCard from "@/components/cards/TagCard";
+import AnswerForm from "@/components/forms/AnswerForm";
 import Metric from "@/components/Metric";
 import { Preview } from "@/components/Preview";
 import UserAvatar from "@/components/UserAvatar";
@@ -83,6 +84,10 @@ const QuestionDetails = async ({ params }: RouteParams) => {
           />
         ))}
       </div>
+
+      <section className="my-5">
+        <AnswerForm />
+      </section>
     </>
   );
 };
