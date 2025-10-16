@@ -51,3 +51,10 @@ interface PaginatedSearchParams {
   filter?: string;
   sort?: string;
 }
+
+interface Answer {
+  _id: string;
+  Author: Author;
+  content: string;
+  createdAt: Date;
+}
