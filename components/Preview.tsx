@@ -6,12 +6,20 @@ Code.theme = {
   dark: "github-dark",
   lightSelector: "html.light",
 };
+
 export const Preview = ({ content = "" }: { content: string }) => {
-  const formattedContent = content.replace(/\\/g, "").replace(/&3x20;/g, "");
+  const formattedContent = content.replace(/&#x20;/g, "");
+
   return (
     <section className="markdown prose grid break-words">
       <MDXRemote
         source={formattedContent}
+        options={{
+          parseFrontmatter: false,
+          mdxOptions: {
+            format: "md",
+          },
+        }}
         components={{
           pre: (props) => (
             <Code

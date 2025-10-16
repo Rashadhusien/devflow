@@ -37,6 +37,11 @@ export const EMPTY_TAGS = {
     href: ROUTES.TAGS,
   },
 };
+export const EMPTY_ANSWERS = {
+  title: "No Answers Found",
+  message:
+    "The Answers board is empty. Maybe it’s waiting for your brilliant Answer to get things rolling",
+};
 
 export const EMPTY_COLLECTIONS = {
   title: "Collections Are Empty",
