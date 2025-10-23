@@ -1,6 +1,8 @@
 import ROUTES from "@/constants/routes";
 import { IAccount } from "@/database/account.model";
 import { IUser } from "@/database/user.model";
+import { SignInWithOAuthParams } from "@/types/action";
+import { APIResponse } from "@/types/global";
 
 import { fetchHandler } from "./handlers/fetch";
 
@@ -60,5 +62,12 @@ export const api = {
       }),
     delete: (id: string) =>
       fetchHandler(`${API_BASE_URL}/accounts/${id}`, { method: "DELETE" }),
+  },
+  ai: {
+    getAnswer: (questoin: string, content: string): APIResponse<string> =>
+      fetchHandler(`${API_BASE_URL}/ai/answers`, {
+        method: "POST",
+        body: JSON.stringify({ questoin, content }),
+      }),
   },
 };
