@@ -31,8 +31,8 @@ const Navbar = async () => {
         {userId && (
           <UserAvatar
             id={userId}
-            name={session.user.name!}
-            imageUrl={session.user?.image}
+            name={session.user && session.user.name!}
+            imageUrl={session.user && session.user.image!}
           />
         )}
         <MobileNavigation />

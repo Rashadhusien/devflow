@@ -4,6 +4,7 @@ import { ReactNode } from "react";
 
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
+import SessionProviderWrapper from "@/context/SessionProviderWrapper";
 import ThemeProvider from "@/context/Theme";
 
 const inter = localFont({
@@ -40,14 +41,16 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
       <body
         className={`${inter.className} ${spaceGrotesk.variable} antialiased `}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        <SessionProviderWrapper>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </SessionProviderWrapper>
         <Toaster position="top-center" richColors />
       </body>
     </html>
