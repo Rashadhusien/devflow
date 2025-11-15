@@ -1,7 +1,9 @@
 "use server";
 
 import mongoose, { ClientSession } from "mongoose";
+import { revalidatePath } from "next/cache";
 
+import ROUTES from "@/constants/routes";
 import { Answer, Question, Vote } from "@/database";
 import {
   UpdateVoteCountParams,
@@ -87,10 +89,10 @@ export async function createVote(
       await Vote.create(
         [
           {
-            targetId,
-            targetType,
+            author: userId,
+            actionId: targetId,
+            actionType: targetType,
             voteType,
-            change: 1,
           },
         ],
         { session }
@@ -107,6 +109,7 @@ export async function createVote(
     }
 
     await session.commitTransaction();
+    revalidatePath(ROUTES.QUESTION(targetId));
     return { success: true };
   } catch (error) {
     await session.abortTransaction();
