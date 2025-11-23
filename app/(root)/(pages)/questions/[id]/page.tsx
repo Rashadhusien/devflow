@@ -40,7 +40,7 @@ const QuestionDetails = async ({ params }: RouteParams) => {
   });
 
   const hasVotedPromise = hasVoted({
-    targetId: question._id,
+    targetId: String(question._id),
     targetType: "question",
   });
 
@@ -65,9 +65,9 @@ const QuestionDetails = async ({ params }: RouteParams) => {
               <Suspense fallback={<div>Loading... </div>}>
                 <Votes
                   targetType="question"
-                  targetId={question._id}
-                  upVotes={question.upvotes}
-                  downVotes={question.downvotes}
+                  targetId={String(question._id)}
+                  upvotes={question.upvotes}
+                  downvotes={question.downvotes}
                   hasVotedPromise={hasVotedPromise}
                 />
               </Suspense>
