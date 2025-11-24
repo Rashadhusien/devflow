@@ -2,15 +2,26 @@
 
 import Image from "next/image";
 import { useSession } from "next-auth/react";
-import { useState } from "react";
+import { use, useState } from "react";
 import { toast } from "sonner";
 
 import { toggleSaveQuestion } from "@/lib/actions/collection.action";
+import { ActionResponse } from "@/types/global";
 
-const SaveQuestion = ({ questionId }: { questionId: string }) => {
+const SaveQuestion = ({
+  questionId,
+  hasSavedQuestionPromise,
+}: {
+  questionId: string;
+  hasSavedQuestionPromise: Promise<ActionResponse<{ saved: boolean }>>;
+}) => {
   const session = useSession();
   const userId = session?.data?.user?.id;
   const [isLoading, setIsLoading] = useState(false);
+
+  const { data } = use(hasSavedQuestionPromise);
+
+  const { saved: hasSaved } = data || {};
 
   const handleSave = async () => {
     if (isLoading) return;
@@ -35,7 +46,6 @@ const SaveQuestion = ({ questionId }: { questionId: string }) => {
       setIsLoading(false);
     }
   };
-  const hasSaved = false;
   return (
     <Image
       src={hasSaved ? "/icons/star-filled.svg" : "/icons/star-red.svg"}
