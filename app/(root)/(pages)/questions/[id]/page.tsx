@@ -54,7 +54,7 @@ const QuestionDetails = async ({ params }: RouteParams) => {
               id={author._id}
               name={author.name}
               className="size-[22]"
-              fullbackClassName="text-[10px]"
+              fallbackClassName="text-[10px]"
             />
             <Link href={ROUTES.PROFILE(author._id)}>
               <p className="paragraph-semibold text-dark300_light700">
