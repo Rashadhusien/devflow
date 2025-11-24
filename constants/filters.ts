@@ -5,6 +5,11 @@ export const HomePageFilters = [
   { name: "Recommended", value: "recommended" },
 ];
 
+export const BasicFilters = [
+  { name: "Newest", value: "latest" },
+  { name: "Oldest", value: "oldest" },
+  { name: "Popular", value: "popular" },
+];
 export const AnswerFilters = [
   { name: "Newest", value: "latest" },
   { name: "Oldest", value: "oldest" },
