@@ -26,23 +26,6 @@ const Home = async ({ searchParams }: SearchParams) => {
 
   const { question: questions } = data || {};
 
-  // const normalizedQuery = query?.toLowerCase() || "";
-  // const normalizedFilter = filter?.toLowerCase() || "";
-
-  // const filteredQuestions = questions.filter((question) => {
-  //   const matchesQuery =
-  //     !normalizedQuery ||
-  //     question.title.toLowerCase().includes(normalizedQuery) ||
-  //     (question.description &&
-  //       question.description.toLowerCase().includes(normalizedQuery));
-
-  //   const matchesFilter =
-  //     !normalizedFilter ||
-  //     question.tags.some((tag) => tag.name.toLowerCase() === normalizedFilter);
-
-  //   return matchesQuery && matchesFilter;
-  // });
-
   return (
     <>
       <section className="flex w-full flex-col-reverse sm:flex-row justify-between gap-4 sm:items-center">

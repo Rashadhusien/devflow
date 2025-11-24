@@ -102,7 +102,7 @@ export async function hasSavedQuestion(
   }
 }
 
-export async function getSavedQuestion(
+export async function getSavedQuestions(
   params: PaginatedSearchParams
 ): Promise<ActionResponse<{ collection: C[]; isNext: boolean }>> {
   const validationResult = await action({
@@ -180,7 +180,7 @@ export async function getSavedQuestion(
     ]);
 
     pipeline.push({ $sort: sortCriteria }, { $skip: skip }, { $limit: limit });
-    pipeline.push({ $project: { qeustion: 1, author: 1 } });
+    pipeline.push({ $project: { question: 1, author: 1 } });
     const questions = await Collection.aggregate(pipeline);
 
     const isNext = totalCount.count > skip + questions.length;
